@@ -9,7 +9,7 @@ const CategoriesData = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        axios.post("http://localhost:9000/categories/nav", { value: categoryValue }).then((res) => setData(res.data))
+        axios.post("https://g-server-sa99.onrender.com/categories/nav", { value: categoryValue }).then((res) => setData(res.data))
     }, [categoryValue])
 
     return (
