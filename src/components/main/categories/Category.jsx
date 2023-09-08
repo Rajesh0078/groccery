@@ -29,7 +29,7 @@ const Category = () => {
     }
 
     return (
-        <div className='category_container h-40 flex align-center'>
+        <div className='category_container h-40 flex align-center border'>
             <Swiper navigation={true} autoplay={{
                 delay: 2500,
                 disableOnInteraction: false,
