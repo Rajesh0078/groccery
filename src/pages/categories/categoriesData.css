@@ -1,0 +1,20 @@
+.data_container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.card-x {
+    box-shadow: 1px 1px .5rem rgba(0, 0, 0, .6);
+    width: 10rem;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.card-x img {
+    width: 5rem;
+    height: 5rem;
+}

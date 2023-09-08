@@ -1,0 +1,15 @@
+.main_products_container {
+    padding: 2rem;
+    text-align: center;
+}
+
+.description {
+    line-height: 1.5em;
+    height: 3em;
+    /* height is 2x line-height, so two lines will display */
+    overflow: hidden;
+}
+
+.card-y:hover {
+    box-shadow: 1px .5px .6rem rgba(0, 0, 0, .6);
+}

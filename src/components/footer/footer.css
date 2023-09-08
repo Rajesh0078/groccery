@@ -1,0 +1,20 @@
+.bottom_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.branding img {
+    width: 6rem;
+    mix-blend-mode: multiply;
+}
+
+@media screen and (max-width:382px) {
+    .branding img {
+        width: 3rem;
+    }
+
+    .bottom_container {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,15 @@
+.title-x {
+    background: url(https://c1.wallpaperflare.com/preview/75/121/218/concrete-wall-structure-urban.jpg);
+}
+
+
+.description-x {
+    line-height: 1.5em;
+    height: 5.6em;
+    /* height is 2x line-height, so two lines will display */
+    overflow: hidden;
+}
+
+.offers_content img {
+    width: 100%;
+}

@@ -1,0 +1,33 @@
+.logo {
+    font-family: 'Pacifico', cursive;
+    margin-top: -.5rem;
+    color: orangered;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.icons svg {
+    vertical-align: middle;
+}
+
+.icons a {
+    display: flex;
+    margin-left: 1rem;
+}
+
+p {
+    display: inline-block;
+}
+
+.active {
+    /* background-color: rgb(197, 106, 78);
+    border-radius: 1rem;
+    color: aliceblue;*/
+    border-bottom: 2px solid orangered;
+}
