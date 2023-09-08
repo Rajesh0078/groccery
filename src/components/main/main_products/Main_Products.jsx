@@ -9,7 +9,7 @@ const MainProducts = () => {
     const [productsData, setProductsData] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:9000/main/products").then((res) => setProductsData(res.data))
+        axios.get("https://g-server-sa99.onrender.com/main/products").then((res) => setProductsData(res.data))
     }, [])
     return (
         <>
