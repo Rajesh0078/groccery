@@ -18,7 +18,7 @@ const Category = () => {
 
 
     useEffect(() => {
-        axios.get("http://localhost:9000/categories").then((res) => setCategorydata(res.data))
+        axios.get("https://g-server-sa99.onrender.com/categories").then((res) => setCategorydata(res.data))
     }, [categoryValue])
 
     const clickHandler = (e) => {
