@@ -20,7 +20,7 @@ const MainProducts = () => {
                     {
                         productsData.length === 0 ? <PreLoader /> :
                             productsData.map((item, index) => {
-                                return <div key={index} className="card card-y bg-white   border w-[16rem] px-4 py-5 rounded-[1rem] max-[768px]:w-[12rem] max-[382px]:w-[9rem]">
+                                return <div key={index} className="card card-y bg-white border w-[16rem] px-4 max-[382px]:px-1 py-5 rounded-[1rem] max-[768px]:w-[12rem] max-[382px]:w-[9rem]">
                                     <img src={item.image} alt="products" className='w-[10rem] h-[10rem] border max-[768px]:w-[6rem] max-[768px]:h-[6rem] max-[382px]:w-[5rem] max-[382px]:h-[4rem]' />
                                     <p className='pt-2 font-medium text-md py-1 max-[768px]:text-sm'>{item.name}</p>
                                     <p className='text-gray-500 description text-sm max-[768px]:text-[.7rem]'>{item.description}</p>
