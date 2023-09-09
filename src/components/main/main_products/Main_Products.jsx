@@ -16,11 +16,11 @@ const MainProducts = () => {
         <>
             <div className="main_products_container bg-slate-100">
                 <h2 className='font-regular text-3xl max-[768px]:text-2xl max-[382px]:text-xl'>Recently Added <span className='text-[orangered] font-medium'>Products</span></h2>
-                <div className="card_container py-5 flex gap-5 flex-wrap justify-center max-[768px]:gap-3 max-[382px]:gap-1">
+                <div className="card_container py-5 flex gap-5 flex-wrap justify-center max-[768px]:gap-3 max-[382px]:gap-2">
                     {
                         productsData.length === 0 ? <PreLoader /> :
                             productsData.map((item, index) => {
-                                return <div key={index} className="card card-y bg-white border w-[16rem] px-4 max-[382px]:px-1 py-5 rounded-[1rem] max-[768px]:w-[12rem] max-[382px]:w-[9rem]">
+                                return <div key={index} className="card card-y bg-white border w-[16rem] px-4  py-5 rounded-[1rem] max-[768px]:w-[12rem] max-[382px]:w-[9rem]">
                                     <img src={item.image} alt="products" className='w-[10rem] h-[10rem] border max-[768px]:w-[6rem] max-[768px]:h-[6rem] max-[382px]:w-[5rem] max-[382px]:h-[4rem]' />
                                     <p className='pt-2 font-medium text-md py-1 max-[768px]:text-sm'>{item.name}</p>
                                     <p className='text-gray-500 description text-sm max-[768px]:text-[.7rem]'>{item.description}</p>
