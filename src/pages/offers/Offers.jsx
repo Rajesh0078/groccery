@@ -3,7 +3,9 @@ import Header from '../../components/header/Header'
 
 const Offers = () => {
     return (
-        <><Header /></>
+        <>
+            <Header />
+        </>
     )
 }
 
