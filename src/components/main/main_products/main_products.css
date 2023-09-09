@@ -13,3 +13,9 @@
 .card-y:hover {
     box-shadow: 1px .5px .6rem rgba(0, 0, 0, .6);
 }
+
+@media screen and (max-width:382px) {
+    .main_products_container {
+        padding: .8rem;
+    }
+}
