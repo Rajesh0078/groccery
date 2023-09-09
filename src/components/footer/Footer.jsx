@@ -10,16 +10,16 @@ const Footer = () => {
                     <h2 className='pb-2 text-orange-400'>SITE LINKS</h2>
                     <div className="container flex gap-[10rem] max-[382px]:gap-[2rem] max-[382px]:text-[.8rem] pb-5">
                         <div className="first flex flex-col max-[382px]:text-[.8rem]">
-                            <p>Contact Us</p>
-                            <p>About Us</p>
-                            <p>Our Top Products</p>
-                            <p>Our Exciting Offers</p>
+                            <Link to='/contact'>Contact Us</Link>
+                            <Link to='/about'>About Us</Link>
+                            <Link to='/products'>Our Top Products</Link>
+                            <Link to="/offers">Our Exciting Offers</Link>
                         </div>
                         <div className="second flex flex-col">
-                            <p>Enroll for store</p>
-                            <p>Business Deal</p>
-                            <p>Store Enrollement</p>
-                            <p>Expand Us</p>
+                            <Link to="/business">Enroll for store</Link>
+                            <Link to="/business">Business Deal</Link>
+                            <Link to="/business">Store Enrollement</Link>
+                            <Link to="/business">Expand Us</Link>
                         </div>
                         <div className="third flex flex-col">
                             <p>Facebook</p>
