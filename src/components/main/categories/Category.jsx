@@ -19,7 +19,7 @@ const Category = () => {
 
 
     useEffect(() => {
-        axios.get("http://localhost:9000/categories").then((res) => setCategorydata(res.data))
+        axios.get("https://g-server-sa99.onrender.com/categories").then((res) => setCategorydata(res.data))
     }, [categoryValue])
 
     const clickHandler = (e) => {
@@ -30,6 +30,7 @@ const Category = () => {
     }
 
     return (
+<<<<<<< HEAD
         <div className='category_container h-40 flex align-center'>
             {!categoryData ? <PreLoader /> :
                 <Swiper navigation={true} autoplay={{
@@ -57,6 +58,22 @@ const Category = () => {
                                 <h2 className='text-center py-2 font-medium max-[475px]:text-sm'>{item.category}</h2>
                             </SwiperSlide>
                         })
+=======
+        <div className='category_container h-40 flex align-center border'>
+            <Swiper navigation={true} autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+            }} modules={[Navigation, Autoplay, Pagination]}
+                breakpoints={{
+                    "@0.00": {
+                        slidesPerView: 3
+                    },
+                    '@.75': {
+                        slidesPerView: 4,
+                    },
+                    '@1.5': {
+                        slidesPerView: 5
+>>>>>>> 2810fe958474cf13d8a1a6e72f9b3dd1a10351d9
                     }
                 </Swiper>}
         </div>

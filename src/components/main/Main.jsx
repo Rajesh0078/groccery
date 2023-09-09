@@ -17,13 +17,13 @@ const Main = () => {
     const [matchedLoc, setMatchedLoc] = useState([])
 
     useEffect(() => {
-        axios.post("http://localhost:9000/category").then((res) => {
+        axios.post("https://g-server-sa99.onrender.com/category").then((res) => {
             let categ = res.data
             let fin = Array(...new Set(categ.map((i) => i.category)))
             setCatData(fin)
         })
 
-        axios.get("http://localhost:9000/location").then((res) => setLocationdata(res.data))
+        axios.get("https://g-server-sa99.onrender.com/location").then((res) => setLocationdata(res.data))
 
     }, [catSearch])
 
