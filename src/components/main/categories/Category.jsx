@@ -43,19 +43,21 @@ const Category = () => {
                         '@1.5': {
                             slidesPerView: 5
                         }
-                    }} style={{
+                    }}
+                    autoplay={{
+                        delay: 2000,
+                        disableOnInteraction: false,
+                    }}
+                    style={{
                         "--swiper-navigation-color": "#000",
                         "--swiper-navigation-size": "20px",
-                    }} className='mySwiper'>
+                    }} loop={true} className='mySwiper'>
                     {
                         categoryData.map((item, index) => {
                             return <SwiperSlide className='card cursor-pointer' key={index} onClick={clickHandler}>
-
                                 <img src={item.image} alt="haha" className='w-20 max-[428px]:w-14 max-[428px]:h-14 h-20 object-cover rounded-full' />
                                 <h2 className='text-center py-2 font-medium max-[475px]:text-sm'>{item.category}</h2>
-
                             </SwiperSlide>
-
                         })
                     }
                 </Swiper>
