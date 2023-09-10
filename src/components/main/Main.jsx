@@ -6,7 +6,6 @@ import Category from './categories/Category'
 import Offers from './categories/offers/Offers'
 import MainProducts from './main_products/Main_Products'
 import Footer from '../footer/Footer'
-import Categories from './categories/offers/Categories'
 
 const Main = () => {
 
@@ -73,10 +72,10 @@ const Main = () => {
                     </div>
                 </form>
             </div>
-            <Categories />
-            <Offers />
-            <Category />
 
+
+            <Category />
+            <Offers />
             <MainProducts />
             <Footer />
         </>
