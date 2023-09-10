@@ -45,7 +45,7 @@ const Category = () => {
                         }
                     }}
                     autoplay={{
-                        delay: 2000,
+                        delay: 2100,
                         disableOnInteraction: false,
                     }}
                     style={{
