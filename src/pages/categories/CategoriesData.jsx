@@ -43,7 +43,7 @@ const CategoriesData = () => {
                 </div>
                 {data.length === 0 ? <div className=' w-[100%]'><center><PreLoader /></center> </div> :
                     <div className=" bg-white me-2  new mt-12 ms-2">
-                        <div className='border border-b-slate-300 py-2 px-4 max-[382px]:text-sm'>
+                        <div className='border border-b-slate-300 py-2 px-4 max-[382px]:text-[.8rem]'>
                             <p className='font-medium me-1'>Sort By:</p>
                             <p className='mx-4 cursor-pointer max-[382px]:mx-[.4rem] ' onClick={sortClickHandelr}>Popularity</p>
                             <p className='mx-4 cursor-pointer max-[382px]:mx-[.4rem] ' onClick={sortClickHandelr}><span className='max-[382px]:hidden'>Price -- </span>Low to High</p>

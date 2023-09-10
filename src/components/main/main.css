@@ -4,10 +4,8 @@
     background-size: cover;
     background-blend-mode: lighten;
     display: flex;
-    padding-top: 6rem;
     align-items: center;
     flex-direction: column;
-    padding-bottom: 5rem;
 }
 
 .main_container h2 {

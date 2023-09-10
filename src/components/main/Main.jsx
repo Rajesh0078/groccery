@@ -43,7 +43,7 @@ const Main = () => {
 
     return (
         <>
-            <div className='main_container p-5'>
+            <div className='main_container pt-[6rem] px-3 pb-[5rem] max-[382px]:pt-[4.5rem] max-[382px]:pb-[1.8rem]'>
                 <h2 className="title text-8xl max-[428px]:text-5xl">grosso store</h2>
                 <p className='mt-10 text-xl py-2 max-[768px]:text-center max-[428px]:text-lg'>Our grocery is always there for you. You’ll grab more than what’s on your list.</p>
                 <p className='text-lg py-3 max-[428px]:text-sm'>Happy shopping...!!</p>
