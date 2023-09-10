@@ -19,19 +19,19 @@ const CategoriesData = () => {
     const sortClickHandelr = (e) => {
         setData([])
         let value = e.target.innerText
-        if (value === "Price -- Low to High") {
+        console.log(value)
+        if (value === "Low to High") {
             setSortValue(-1)
             e.target.classList.add("active")
             console.log(e.target.classList)
         }
-        if (value === "Price -- High to Low") {
+        if (value === "High to Low") {
             setSortValue(1)
         }
         if (value === "Popularity") {
             setSortValue(0)
         }
     }
-    //console.log(data)
 
     return (
         <>
