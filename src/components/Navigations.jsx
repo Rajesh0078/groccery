@@ -8,6 +8,10 @@ import About from "../pages/about/About"
 import { store } from '../App'
 import CategoriesData from '../pages/categories/CategoriesData'
 import BusinessPage from '../pages/BusinessPage/BusinessPage'
+import Authorization from '../pages/Authorization/Authorization'
+import NotFound from '../pages/404/NotFound'
+
+
 
 const Navigations = () => {
     const { categoryValue } = useContext(store)
@@ -17,10 +21,11 @@ const Navigations = () => {
             <Route path='/products' element={<Products />} />
             <Route path='/offers' element={<Offers />} />
             <Route path='/contact' element={<Contact />} />
+            <Route path='/login' element={<Authorization />} />
             <Route path='/about' element={<About />} />
             <Route path='/business' element={<BusinessPage />} />
             <Route path={`/categories/${categoryValue}`} element={<CategoriesData />} />
-            <Route path='*' element={"not found"} />
+            <Route path='*' element={<NotFound />} />
         </Routes>
     )
 }

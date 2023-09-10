@@ -1,20 +1,28 @@
 .data_container {
     display: flex;
-    justify-content: space-between;
     margin-top: 3rem;
     flex-wrap: wrap;
-    gap: 2rem;
-    padding: 2rem;
 }
 
 .card-x {
-    box-shadow: 1px 1px .5rem rgba(0, 0, 0, .6);
+    border-radius: 3px;
     width: 10rem;
-    border-radius: 1rem;
-    padding: 1rem;
 }
 
-.card-x img {
-    width: 5rem;
-    height: 5rem;
+.card-x:hover {
+    box-shadow: .5px .0px .5rem rgba(0, 0, 0, .6);
+}
+
+.over {
+
+    line-height: 1.5em;
+    height: 3em;
+    /* height is 2x line-height, so two lines will display */
+    overflow: hidden;
+    /* prevents extra lines from being visible */
+
+}
+
+.new {
+    box-shadow: .5px .5px .3rem rgba(94, 93, 93, 0.6);
 }

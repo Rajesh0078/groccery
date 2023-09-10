@@ -16,7 +16,7 @@ const MainProducts = () => {
         <>
             <div className="main_products_container bg-slate-100">
                 <h2 className='font-regular text-3xl max-[768px]:text-2xl max-[382px]:text-xl'>Recently Added <span className='text-[orangered] font-medium'>Products</span></h2>
-                <div className="card_container py-5 flex gap-5 flex-wrap justify-center max-[768px]:gap-3 max-[382px]:gap-2">
+                <div className=" py-5 flex gap-5 flex-wrap justify-center max-[768px]:gap-3 max-[382px]:gap-2">
                     {
                         productsData.length === 0 ? <PreLoader /> :
                             productsData.map((item, index) => {
