@@ -30,9 +30,9 @@ const Category = () => {
     }
 
     return (
-        <div className='category_container flex align-center border-slate-300 border wrap px-2'>
+        <div className='category_container flex align-center border-slate-300 border py-4'>
             {!categoryData ? <PreLoader /> :
-                /*<Swiper navigation={true} modules={[Navigation, Autoplay, Pagination]}
+                <Swiper navigation={true} modules={[Navigation, Autoplay, Pagination]}
                     breakpoints={{
                         "@0.00": {
                             slidesPerView: 3
@@ -60,13 +60,8 @@ const Category = () => {
                             </SwiperSlide>
                         })
                     }
-                </Swiper>*/
-                categoryData.map((item, index) => {
-                    return <div className='card cursor-pointer' key={index} onClick={clickHandler}>
-                        <img src={item.image} alt="haha" className='w-20 max-[428px]:w-14 max-[428px]:h-14 h-20 object-cover rounded-full' />
-                        <h2 className='text-center py-2 font-medium max-[475px]:text-sm'>{item.category}</h2>
-                    </div>
-                })
+                </Swiper>
+
             }
         </div>
     )
