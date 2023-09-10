@@ -22,8 +22,6 @@ const CategoriesData = () => {
         console.log(value)
         if (value === "Low to High") {
             setSortValue(-1)
-            e.target.classList.add("active")
-            console.log(e.target.classList)
         }
         if (value === "High to Low") {
             setSortValue(1)
