@@ -10,9 +10,11 @@ const CategoriesData = () => {
     const { categoryValue } = useContext(store)
     const [data, setData] = useState([])
     const [sortValue, setSortValue] = useState(0)
+    const [storeCity, setstoreCity] = useState(null)
 
     useEffect(() => {
         axios.post("https://g-server-sa99.onrender.com/categories/nav", { value: categoryValue, sort: sortValue }).then((res) => { setData(res.data) })
+        axios.get("http://localhost:9000/categories/filter").then((res) => setstoreCity(res.data))
     }, [categoryValue, sortValue])
 
 
@@ -36,10 +38,56 @@ const CategoriesData = () => {
             <Header />
             <div className='bg-slate-100 flex py-[1rem]'>
                 <div className=" new my-[3rem] mx-3 bg-white  h-[60rem] max-[382px]:hidden">
-                    <span className='px-2'>gudyfd</span>
-                    <span className='px-2'>gudyfd</span>
-                    <span className='px-2'>gudyfd</span>
-                    <span className='px-2'>gudyfd</span>
+                    <div className="mx-auto px-3 bg-white min-h-sceen w-[16rem]">
+                        <h2 className='font-medium py-2 border-b border-slate-400 text-2xl'>Filters</h2>
+                        <div className="grid divide-y divide-neutral-200 max-w-xl mx-auto">
+                            <div className="py-5">
+                                <details className="group">
+                                    <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
+                                        <span> Store Name</span>
+                                        <span className="transition group-open:rotate-180">
+                                            <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
+                                            </svg>
+                                        </span>
+                                    </summary>
+                                    <div className="text-neutral-600 mt-1 group-open:animate-fadeIn mx-2">
+                                        {
+                                            storeCity &&
+                                            storeCity.name.map((n, index) => {
+                                                return <div key={index}>
+                                                    <p className='w-3 h-3 rounded-full hover:bg-blue-300 border border-black align-middle'></p>
+                                                    <span className='mx-3 align-middle'>{n}</span>
+                                                </div>
+                                            })
+                                        }
+                                    </div>
+                                </details>
+                            </div>
+                            <div className="py-5">
+                                <details className="group">
+                                    <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
+                                        <span> Store Location</span>
+                                        <span className="transition group-open:rotate-180">
+                                            <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
+                                            </svg>
+                                        </span>
+                                    </summary>
+                                    <div className="text-neutral-600 mt-1 group-open:animate-fadeIn mx-2">
+                                        {
+                                            storeCity &&
+                                            storeCity.city.map((n, index) => {
+                                                return <div key={index}>
+                                                    <p className='w-3 h-3 rounded-full hover:bg-blue-300 border border-black align-middle'></p>
+                                                    <span className='mx-3 align-middle'>{n}</span>
+                                                </div>
+                                            })
+
+                                        }
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 {data.length === 0 ? <div className=' w-[100%]'><center><PreLoader /></center> </div> :
                     <div className=" bg-white me-2  new mt-12 ms-2">

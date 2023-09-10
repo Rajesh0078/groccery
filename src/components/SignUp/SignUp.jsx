@@ -41,11 +41,11 @@ const SignUp = () => {
             <form onSubmit={submitHandler} className='text-left mt-3 max-[382px]:mt-1 flex flex-col'>
                 <div className="container_input flex max-[382px]:flex-col  max-[382px]:gap-0 gap-3">
                     <div className="flex flex-col">
-                        <label className='mb-2 mt-4  max-[382px]:text-sm max-[382px]:mb-1 max-[382px]:mt-2' htmlFor="fullname" > Full name</label >
+                        <label className='mb-2 mt-4  max-[382px]:text-sm max-[382px]:mb-1 ' htmlFor="fullname" > Full name</label >
                         <input className=' py-2 px-2 max-[382px]:py-1  rounded-md border border-slate-300' placeholder='Enter Your Full name' value={inputData.fullname} type="text" id='fullname' name='fullname' required onChange={chanegHandler} />
                     </div>
                     <div className="flex flex-col">
-                        <label className='mb-2 mt-4 max-[382px]:text-sm max-[382px]:mb-1  max-[382px]:mt-2' htmlFor="mobile">Mobile</label>
+                        <label className='mb-2 mt-4 max-[382px]:text-sm max-[382px]:mb-1  ' htmlFor="mobile">Mobile</label>
                         <input className=' py-2 px-2 max-[382px]:py-1 rounded-md border border-slate-300' placeholder='Enter Your Mobile' value={inputData.mobile} type="number" id='mobile' name='mobile' required onChange={chanegHandler} />
                     </div>
                 </div>
