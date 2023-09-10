@@ -72,8 +72,9 @@ const Main = () => {
                     </div>
                 </form>
             </div>
-            <Category />
             <Offers />
+            <Category />
+
             <MainProducts />
             <Footer />
         </>

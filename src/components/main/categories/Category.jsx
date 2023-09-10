@@ -30,7 +30,7 @@ const Category = () => {
     }
 
     return (
-        <div className='category_container h-40 flex align-center'>
+        <div className='category_container h-40 flex align-center border-slate-300 border'>
             {!categoryData ? <PreLoader /> :
                 <Swiper navigation={true} modules={[Navigation, Autoplay, Pagination]}
                     breakpoints={{
