@@ -1,0 +1,23 @@
+.cart_container {
+    transform-origin: bottom;
+    animation-name: example;
+    animation-duration: .8s;
+}
+
+@keyframes example {
+    from {
+        transform: scaleY(0);
+    }
+
+    to {
+        transform: scaleY(1);
+    }
+}
+
+.cart_content {
+    box-shadow: 1px .5px .5rem rgba(0, 0, 0, .6);
+}
+
+.cart_content::-webkit-scrollbar {
+    width: 0rem;
+}

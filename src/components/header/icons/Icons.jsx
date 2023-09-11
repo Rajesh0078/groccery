@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 import { store } from '../../../App'
 
 const Icons = () => {
-    const { user, setToken } = useContext(store)
+    const { user, setToken, setCart } = useContext(store)
     return (
         <>
 
-            <Link className='hover:text-orange-500 flex items-center mx-2 max-[382px]:mx-2' ><FaShoppingBasket className='mx-1 stroke-4 text-xl max-[768px]:mx-0' /><p className='max-[768px]:hidden'>Cart</p></Link>
+            <Link className='hover:text-orange-500 flex items-center mx-2 max-[382px]:mx-2' onClick={() => setCart(true)}><FaShoppingBasket className='mx-1 stroke-4 text-xl max-[768px]:mx-0' /><p className='max-[768px]:hidden'>Cart</p></Link>
             {
                 user.fullname ?
                     <div className='flex '>
