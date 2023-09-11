@@ -27,7 +27,7 @@ const Main = () => {
 
         axios.get("https://g-server-sa99.onrender.com/location").then((res) => setLocationdata(res.data))
 
-        axios.get("http://localhost:9000/user", {
+        axios.get("https://g-server-sa99.onrender.com/user", {
             headers: {
                 "x-token": token.token
             }

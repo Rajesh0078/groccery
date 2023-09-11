@@ -8,7 +8,7 @@ const Icons = () => {
     return (
         <>
 
-            <Link className='hover:text-orange-500 flex items-center mx-2 max-[382px]:mx-2 '><FaShoppingBasket className='mx-1 stroke-4 text-xl max-[768px]:mx-0' /><p className='max-[768px]:hidden'>Cart</p></Link>
+            <Link className='hover:text-orange-500 flex items-center mx-2 max-[382px]:mx-2' ><FaShoppingBasket className='mx-1 stroke-4 text-xl max-[768px]:mx-0' /><p className='max-[768px]:hidden'>Cart</p></Link>
             {
                 user.fullname ?
                     <div className='flex '>
@@ -23,6 +23,8 @@ const Icons = () => {
 
                     <Link to='/login' className='hover:text-orange-500'><FaUser className='text-xl max-[768px]:mx-0 max-[382px]:mx-0' /><p className='max-[768px]:hidden ms-2'>Login</p></Link>
             }
+
+
         </>
     )
 }

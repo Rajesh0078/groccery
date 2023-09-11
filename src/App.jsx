@@ -12,10 +12,11 @@ function App() {
 	const [sortValue, setSortValue] = useState(0)
 	const [token, setToken] = useState([])
 	const [user, setUser] = useState([])
+	const [cart, setCart] = useState(false)
 
 	const contextValues = {
 		categoryValue,
-		setCategoryValue,
+		setCategoryValue, cart, setCart,
 		pageName,
 		setPageName, productData, setProductData, sortValue, setSortValue, token, setToken, user, setUser
 	}
