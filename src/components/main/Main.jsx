@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import axios from "axios"
 import "./main.css"
@@ -6,9 +6,11 @@ import Category from './categories/Category'
 import Offers from './categories/offers/Offers'
 import MainProducts from './main_products/Main_Products'
 import Footer from '../footer/Footer'
+import { store } from '../../App'
 
 const Main = () => {
 
+    const { token, setUser } = useContext(store)
     const [catSearch, setCatSearch] = useState("")
     const [locSearch, setLocSearch] = useState("")
     const [catData, setCatData] = useState([])
@@ -25,7 +27,13 @@ const Main = () => {
 
         axios.get("https://g-server-sa99.onrender.com/location").then((res) => setLocationdata(res.data))
 
-    }, [catSearch])
+        axios.get("http://localhost:9000/user", {
+            headers: {
+                "x-token": token.token
+            }
+        }).then((res) => setUser(res.data))
+
+    }, [catSearch, setUser, token])
 
     const categoryHandler = (e) => {
         setCatSearch(e.target.value.trim())

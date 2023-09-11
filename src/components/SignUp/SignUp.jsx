@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './signup.css'
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios"
 
 const SignUp = () => {
@@ -18,11 +20,32 @@ const SignUp = () => {
         setInputData({ ...inputData, [e.target.name]: e.target.value })
     }
 
-
+    useEffect(() => {
+        if (data.fullname) {
+            toast.success("Registration success", {
+                position: 'top-right',
+                autoClose: 3000, // Notification will auto-close after 3 seconds
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        }
+        if (data.msg) {
+            toast.success(data.msg, {
+                position: 'top-right',
+                autoClose: 3000, // Notification will auto-close after 3 seconds
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        }
+    }, [data])
 
     const submitHandler = (e) => {
         e.preventDefault();
-        axios.post("https://g-server-sa99.onrender.com/api/register", inputData).then((res) => setData(res.data))
+        axios.post("https://g-server-sa99.onrender.com/register", inputData).then((res) => setData(res.data))
         setInputData({
             fullname: "",
             mobile: "",
@@ -30,10 +53,9 @@ const SignUp = () => {
             password: "",
             cpassword: ""
         })
-        if (data) {
-            alert("registration success")
-        }
+
     }
+
 
 
     return (
@@ -66,7 +88,7 @@ const SignUp = () => {
                 <input className=' mt-6 max-[382px]:mt-3 max-[382px]:py-1 py-2 px-2 rounded-md border border-slate-300 bg-gradient-to-r from-[orangered] text-white to-orange-400' type="submit" value={"SignUp"} />
                 <p className='mt-3  max-[382px]:mt-2  max-[382px]:text-sm'>Already have an Account <span className='text-orange-500 ms-2 cursor-pointer '>Login Now</span></p>
             </form >
-
+            <ToastContainer />
         </>
     )
 }

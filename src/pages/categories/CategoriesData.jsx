@@ -14,7 +14,7 @@ const CategoriesData = () => {
 
     useEffect(() => {
         axios.post("https://g-server-sa99.onrender.com/categories/nav", { value: categoryValue, sort: sortValue }).then((res) => { setData(res.data) })
-        axios.get("http://localhost:9000/categories/filter").then((res) => setstoreCity(res.data))
+        axios.get("https://g-server-sa99.onrender.com/categories/filter").then((res) => setstoreCity(res.data))
     }, [categoryValue, sortValue])
 
 
@@ -81,7 +81,6 @@ const CategoriesData = () => {
                                                     <span className='mx-3 align-middle'>{n}</span>
                                                 </div>
                                             })
-
                                         }
                                     </div>
                                 </details>
@@ -94,8 +93,8 @@ const CategoriesData = () => {
                         <div className='border border-b-slate-300 py-2 px-4 max-[382px]:text-[.8rem]'>
                             <p className='font-medium me-1'>Sort By:</p>
                             <p className='mx-4 cursor-pointer max-[382px]:mx-[.4rem] ' onClick={sortClickHandelr}>Popularity</p>
-                            <p className='mx-4 cursor-pointer max-[382px]:mx-[.4rem] ' onClick={sortClickHandelr}><span className='max-[382px]:hidden'>Price -- </span>Low to High</p>
-                            <p className='mx-4 cursor-pointer max-[382px]:mx-[.4rem] ' onClick={sortClickHandelr}><span className='max-[382px]:hidden'>Price -- </span>High to Low</p>
+                            <p className='mx-4 cursor-pointer max-[382px]:mx-[.4rem] '><span className='max-[382px]:hidden'>Price -- </span><span onClick={sortClickHandelr}>Low to High</span></p>
+                            <p className='mx-4 cursor-pointer max-[382px]:mx-[.4rem] '><span className='max-[382px]:hidden'>Price -- </span><span onClick={sortClickHandelr}>High to Low</span></p>
                         </div>
                         <div className='data_container max-[382px]:gap-3 max-[382px]:text-sm'>
                             {

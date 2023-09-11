@@ -10,12 +10,14 @@ function App() {
 	const [pageName, setPageName] = useState("Login")
 	const [productData, setProductData] = useState([])
 	const [sortValue, setSortValue] = useState(0)
+	const [token, setToken] = useState([])
+	const [user, setUser] = useState([])
 
 	const contextValues = {
 		categoryValue,
 		setCategoryValue,
 		pageName,
-		setPageName, productData, setProductData, sortValue, setSortValue
+		setPageName, productData, setProductData, sortValue, setSortValue, token, setToken, user, setUser
 	}
 	return (
 		<store.Provider value={contextValues}>
