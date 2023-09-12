@@ -35,6 +35,9 @@ const CartContainer = () => {
                                     <input type="submit" value="Get area" className='cursor-pointer border-0 align-middle max-[826px]:px-1 px-2 text-orange-500 bg-white h-[100%] max-[462px]:py-[.1rem] max-[462px]:w-[25%]' />
                                 </form>
                             </div>
+                            <div className="product_deails">
+
+                            </div>
                         </div>
                         <div className="checkout basis-1/3  max-[682px]:w-[100%] ">
                             <h2 className='text-xl font-medium pb-5 max-[826px]:text-lg max-[826px]:pb-1 '>Order summary</h2>

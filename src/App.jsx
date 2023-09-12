@@ -13,13 +13,16 @@ function App() {
 	const [token, setToken] = useState([])
 	const [user, setUser] = useState([])
 	const [cart, setCart] = useState(false)
+	const [cartProductData, setCartProductData] = useState([])
 
 	const contextValues = {
 		categoryValue,
 		setCategoryValue, cart, setCart,
 		pageName,
+		cartProductData, setCartProductData,
 		setPageName, productData, setProductData, sortValue, setSortValue, token, setToken, user, setUser
 	}
+
 	return (
 		<store.Provider value={contextValues}>
 			<BrowserRouter>

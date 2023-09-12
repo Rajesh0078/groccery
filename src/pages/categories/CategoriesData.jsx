@@ -5,12 +5,14 @@ import { store } from '../../App'
 import Header from '../../components/header/Header'
 import PreLoader from '../../components/preloader/PreLoader'
 import { FaShoppingBasket } from 'react-icons/fa'
+import CartContainer from '../../components/cart/CartContainer'
 
 const CategoriesData = () => {
-    const { categoryValue } = useContext(store)
+    const { categoryValue, setCartProductData, cartProductData, cart } = useContext(store)
     const [data, setData] = useState([])
     const [sortValue, setSortValue] = useState(0)
     const [storeCity, setstoreCity] = useState(null)
+    // 
 
     useEffect(() => {
         axios.post("https://g-server-sa99.onrender.com/categories/nav", { value: categoryValue, sort: sortValue }).then((res) => { setData(res.data) })
@@ -32,6 +34,17 @@ const CategoriesData = () => {
             setSortValue(0)
         }
     }
+
+    const addCartHandler = (e) => {
+        const parent = (e.target.parentElement.parentElement)
+        const dataValue = (parent.childNodes[1].innerText);
+        const filteredData = (data.filter((item) => item.product_name === dataValue))
+        const store = parent.childNodes[6].childNodes[1].innerText
+        const match = (filteredData.filter((item) => item.name === store))
+        setCartProductData([...cartProductData, match[0]])
+        //console.log(match[0])
+    }
+
 
     return (
         <>
@@ -109,7 +122,7 @@ const CategoriesData = () => {
                                         <span className='ms-4 text-[.9rem] text-green-800 font-medium max-[382px]:ms-2 '>10% off</span>
                                         <div className='max-[382px]:mt-2'><FaShoppingBasket className='inline max-[382px]:hidden' /><span className='ms-2 text-slate-500 max-[382px]:ms-0 max-[382px]:text-[.8rem]'>{item.name}</span></div>
                                         <div className="btn mt-3 flex justify-between">
-                                            <span className='border border-slate-300 py-2 px-6 text-orange-600 font-medium cursor-pointer max-[382px]:px-2 max-[382px]:text-[.8rem] max-[382px]:py-1'>Add to cart</span>
+                                            <span className='border border-slate-300 py-2 px-6 text-orange-600 font-medium cursor-pointer max-[382px]:px-2 max-[382px]:text-[.8rem] max-[382px]:py-1' onClick={addCartHandler}>Add to cart</span>
                                             <select className='border border-slate-300 py-[.44rem] max-[382px]:py-1 px-1'>
                                                 <option value="1">1</option>
                                                 <option value="1">2</option>
@@ -127,6 +140,11 @@ const CategoriesData = () => {
                     </div>
                 }
             </div>
+            {
+                cart &&
+                <CartContainer />
+
+            }
         </>
     )
 }
