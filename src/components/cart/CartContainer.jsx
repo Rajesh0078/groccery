@@ -37,7 +37,7 @@ const CartContainer = () => {
         <>
             <div id='cart' className="cart_container h-screen w-[100%] border left-0 right-0  top-0 bg-slate-100 z-[1000]  pt-5 fixed " >
                 <div className='right-10 max-[826px]:right-5 absolute cursor-pointer'><ImCancelCircle size={25} onClick={() => setCart(false)} /></div>
-                <div className="cart_content bg-white h-[100%] pb-[5rem]  mt-[5rem] rounded-t-[2rem] p-5 ">
+                <div className="cart_content bg-white h-[100%] max-[682px]:overflow-y-scroll pb-[5rem]  mt-[5rem] rounded-t-[2rem] p-5 ">
                     <h2 className='text-2xl font-medium pb-2  border-b border-slate-500 mb-2'>Shopping cart</h2>
                     <div className="flex gap-5 h-[100%] max-[682px]:flex-col mt-4">
                         <div className=" basis-2/3 ">
