@@ -1,6 +1,5 @@
 
 import { useContext } from 'react'
-import Header from '../../components/header/Header'
 import Main from '../../components/main/Main'
 import { store } from '../../App'
 import "../products/App.css"
@@ -13,7 +12,7 @@ const Home = () => {
 
     return (
         <>
-            <Header />
+
             <Main />
             {
                 cart &&

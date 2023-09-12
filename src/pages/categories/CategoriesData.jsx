@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import axios from "axios"
 import "./categoriesData.css"
 import { store } from '../../App'
-import Header from '../../components/header/Header'
 import PreLoader from '../../components/preloader/PreLoader'
 import { FaShoppingBasket } from 'react-icons/fa'
 import CartContainer from '../../components/cart/CartContainer'
@@ -48,7 +47,7 @@ const CategoriesData = () => {
 
     return (
         <>
-            <Header />
+
             <div className='bg-slate-100 flex py-[1rem]'>
                 <div className=" new my-[3rem] mx-3 bg-white  h-[60rem] max-[382px]:hidden">
                     <div className="mx-auto px-3 bg-white min-h-sceen w-[16rem]">
@@ -143,7 +142,6 @@ const CategoriesData = () => {
             {
                 cart &&
                 <CartContainer />
-
             }
         </>
     )

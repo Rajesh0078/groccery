@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import { store } from '../../../App'
 
 const Icons = () => {
-    const { user, setToken, setCart } = useContext(store)
+    const { user, setToken, setCart, setUser } = useContext(store)
+
     return (
         <>
 
@@ -16,7 +17,7 @@ const Icons = () => {
                             <FaUser className='mx-1 max-[382px]:mx-0 stroke-4 text-xl max-[768px]:mx-0 ' />
                             <p className='ms-1'>{user.fullname}</p>
                         </div>
-                        <p className='ms-3 cursor-pointer hover:text-orange-500' onClick={() => setToken([])}>logout</p>
+                        <p className='ms-3 cursor-pointer hover:text-orange-500' onClick={() => { setToken([]); setUser([]) }}>logout</p>
                     </div>
 
                     :

@@ -2,6 +2,7 @@ import { BrowserRouter } from "react-router-dom"
 import { createContext, useState } from "react";
 import './App.css';
 import Navigations from './components/Navigations';
+import Header from "./components/header/Header";
 
 export const store = createContext();
 
@@ -28,6 +29,7 @@ function App() {
 	return (
 		<store.Provider value={contextValues}>
 			<BrowserRouter>
+				<Header />
 				<Navigations />
 			</BrowserRouter>
 		</store.Provider>
