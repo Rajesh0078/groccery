@@ -16,7 +16,7 @@ const CartContainer = () => {
         e.preventDefault()
         axios.get(`https://api.postalpincode.in/pincode/${pincode}`).then((res) => setPincodeData(res.data))
         setPincode("")
-
+        //console.log(pincodeData)
     }
 
 
@@ -29,7 +29,7 @@ const CartContainer = () => {
                     <div className="flex gap-5 h-[100%] max-[682px]:flex-col mt-4">
                         <div className=" basis-2/3 ">
                             <div className="flex justify-between px-12 max-[826px]:px-0 max-[826px]:ps-0 max-[462px]:flex-col  bg-[#ececec] border">
-                                <p className='py-1 max-[826px]:text-sm max-[826px]:ps-1'><span className='text-slate-600'>Deliver to: </span>{pincodeData.length > 1 ? pincodeData.map((item, indx) => { return <span key={indx} className='mx-1'>{item.PostOffice[0].Block}</span> }) : "Enter pincode -->"}</p>
+                                <p className='py-1 max-[826px]:text-sm max-[826px]:ps-1'><span className='text-slate-600'>Deliver to: </span>{pincodeData.length >= 1 ? <span className='mx-1'>{pincodeData[0].PostOffice[0].Block}</span> : "Enter pincode -->"}</p>
                                 <form onSubmit={submitHandler} className=' max-[826px]:text-sm'>
                                     <input type="search" name='pincode' value={pincode} placeholder='Get your area details' className='border-0 align-middle px-1 h-[100%] max-[462px]:py-1 max-[826px]:w-36 max-[462px]:w-[75%]' onChange={changeHandler} />
                                     <input type="submit" value="Get area" className='cursor-pointer border-0 align-middle max-[826px]:px-1 px-2 text-orange-500 bg-white h-[100%] max-[462px]:py-[.1rem] max-[462px]:w-[25%]' />
