@@ -8,7 +8,7 @@ import { FaShoppingBasket } from 'react-icons/fa'
 import CartContainer from '../../components/cart/CartContainer'
 
 const CategoriesData = () => {
-    const { categoryValue, setCartProductData, cartProductData, cart } = useContext(store)
+    const { categoryValue, setCartProductData, cart, user, cartProductData } = useContext(store)
     const [data, setData] = useState([])
     const [sortValue, setSortValue] = useState(0)
     const [storeCity, setstoreCity] = useState(null)
@@ -17,13 +17,13 @@ const CategoriesData = () => {
     useEffect(() => {
         axios.post("https://g-server-sa99.onrender.com/categories/nav", { value: categoryValue, sort: sortValue }).then((res) => { setData(res.data) })
         axios.get("https://g-server-sa99.onrender.com/categories/filter").then((res) => setstoreCity(res.data))
-    }, [categoryValue, sortValue])
+        axios.post("https://g-server-sa99.onrender.com/cart", cartProductData)
+    }, [categoryValue, sortValue, cartProductData])
 
 
     const sortClickHandelr = (e) => {
         setData([])
         let value = e.target.innerText
-        console.log(value)
         if (value === "Low to High") {
             setSortValue(-1)
         }
@@ -41,10 +41,10 @@ const CategoriesData = () => {
         const filteredData = (data.filter((item) => item.product_name === dataValue))
         const store = parent.childNodes[6].childNodes[1].innerText
         const match = (filteredData.filter((item) => item.name === store))
-        setCartProductData([...cartProductData, match[0]])
-        //console.log(match[0])
+        match[0].user = user.email
+        setCartProductData(match[0])
+        // console.log(cartProductData)
     }
-
 
     return (
         <>

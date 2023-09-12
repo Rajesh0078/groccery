@@ -56,8 +56,6 @@ const SignUp = () => {
 
     }
 
-
-
     return (
         <>
             <form onSubmit={submitHandler} className='text-left mt-3 max-[382px]:mt-1 flex flex-col'>

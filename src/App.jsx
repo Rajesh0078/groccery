@@ -14,12 +14,14 @@ function App() {
 	const [user, setUser] = useState([])
 	const [cart, setCart] = useState(false)
 	const [cartProductData, setCartProductData] = useState([])
+	const [cartProducts, setCartProducts] = useState([])
 
 	const contextValues = {
 		categoryValue,
 		setCategoryValue, cart, setCart,
 		pageName,
 		cartProductData, setCartProductData,
+		cartProducts, setCartProducts,
 		setPageName, productData, setProductData, sortValue, setSortValue, token, setToken, user, setUser
 	}
 

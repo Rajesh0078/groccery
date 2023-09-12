@@ -20,6 +20,8 @@ const CartContainer = () => {
     }
 
 
+
+
     return (
         <>
             <div id='cart' className="cart_container h-screen w-[100%] border left-0 right-0  top-0 bg-slate-100 z-[1000]  pt-5 fixed " >
