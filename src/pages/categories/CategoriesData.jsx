@@ -7,7 +7,7 @@ import { FaShoppingBasket } from 'react-icons/fa'
 import CartContainer from '../../components/cart/CartContainer'
 
 const CategoriesData = () => {
-    const { categoryValue, setCartProductData, cart, user, cartProductData } = useContext(store)
+    const { categoryValue, setCartProductData, cart, user, cartProductData, setCartValue, cartData, setCartLength, setCartData } = useContext(store)
     const [data, setData] = useState([])
     const [sortValue, setSortValue] = useState(0)
     const [storeCity, setstoreCity] = useState(null)
@@ -18,6 +18,18 @@ const CategoriesData = () => {
         axios.get("https://g-server-sa99.onrender.com/categories/filter").then((res) => setstoreCity(res.data))
         axios.post("https://g-server-sa99.onrender.com/cart", cartProductData)
     }, [categoryValue, sortValue, cartProductData])
+
+    useEffect(() => {
+        axios.post("https://g-server-sa99.onrender.com/getcart", { user: user.email }).then((res) => setCartData(res.data))
+        if (cartData[0] === undefined) {
+            return;
+        }
+        else if (cartData[0].length > 0) {
+            setCartLength(cartData[0].length)
+            let value = cartData[0].map((i) => Math.ceil(i.price * 100))
+            setCartValue(value.reduce((prev, curre) => { return prev + curre }, 0))
+        }
+    }, [user, cartData, setCartLength, setCartValue, setCartData])
 
 
     const sortClickHandelr = (e) => {

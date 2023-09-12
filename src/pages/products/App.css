@@ -19,5 +19,9 @@
 }
 
 .cart_content::-webkit-scrollbar {
-    width: 0rem;
+    width: .7rem;
+}
+
+.cart_content::-webkit-scrollbar-thumb {
+    background-color: black;
 }

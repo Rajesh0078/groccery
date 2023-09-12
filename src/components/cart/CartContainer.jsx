@@ -2,12 +2,15 @@ import React, { useContext, useState } from 'react'
 import { store } from '../../App'
 import { ImCancelCircle } from "react-icons/im"
 import axios from 'axios'
+import "../../pages/products/App.css"
 
 
 const CartContainer = () => {
-    const { setCart } = useContext(store)
+    const { cartData, setCart, cartValue } = useContext(store)
     const [pincodeData, setPincodeData] = useState("")
     const [pincode, setPincode] = useState("")
+    //const [cartData, setCartData] = useState([])
+    //const [cartValue, setCartValue] = useState([0])
 
     const changeHandler = (e) => {
         setPincode(e.target.value)
@@ -18,8 +21,17 @@ const CartContainer = () => {
         setPincode("")
         //console.log(pincodeData)
     }
-
-
+    /*useEffect(() => {
+        axios.post("https://g-server-sa99.onrender.com/getcart", { user: user.email }).then((res) => setCartData(res.data))
+        if (cartData[0] === undefined) {
+            return;
+        }
+        else if (cartData[0].length > 0) {
+            setCartLength(cartData[0].length)
+            let value = cartData[0].map((i) => Math.ceil(i.price * 100))
+            setCartValue(value.reduce((prev, curre) => { return prev + curre }, 0))
+        }
+    }, [user, cartData, setCartLength])*/
 
 
     return (
@@ -37,37 +49,63 @@ const CartContainer = () => {
                                     <input type="submit" value="Get area" className='cursor-pointer border-0 align-middle max-[826px]:px-1 px-2 text-orange-500 bg-white h-[100%] max-[462px]:py-[.1rem] max-[462px]:w-[25%]' />
                                 </form>
                             </div>
-                            <div className="product_deails">
+                            <div className="product_deails border mt-3 overflow-y-scroll h-[24rem]">
+                                {
+                                    cartData[0] === undefined ? <center>Please Login</center> :
+                                        cartData[0].length === 0 ? <center>Cart is empty</center> :
+                                            <>
+                                                {
+                                                    cartData[0].map((i, n) => {
+                                                        return <div key={n} className='p-2 flex gap-4  '>
+                                                            <img src={i.image} alt="images" className='w-[10rem]' />
+                                                            <div>
+                                                                <h2 className='text-lg'>{i.name}</h2>
+                                                                <p className='text-slate-600'>{i.description}</p>
+                                                                <p className='block my-1'><span className='text-slate-600'>seller: </span>{i.store}</p>
+                                                                <p className='line-through text-slate-600 text-[.8rem]'>₹{Math.ceil(i.price * 100)}</p>
+                                                                <p className='ms-3 text-xl'>₹{Math.ceil((i.price * 100) * 0.9)}</p>
+                                                                <p className='ms-3 text-sm text-green-600'>10% Offer</p><br />
+                                                                <p className='px-2 text-white rounded-sm mt-2 text-sm cursor-pointer bg-orange-300'>Remove</p>
+                                                            </div>
+                                                        </div>
+                                                    })
+                                                }
+                                            </>
+                                }
+                            </div>
+                        </div>
+                        {cartData[0] === undefined ? <center>Please Login</center> :
+                            cartData[0].length === 0 ? <center>Cart is empty</center> :
+                                <div className="checkout basis-1/3  max-[682px]:w-[100%] ">
+                                    <h2 className='text-xl font-medium pb-5 max-[826px]:text-lg max-[826px]:pb-1 '>Order summary</h2>
+                                    <div className="flex justify-between py-2 max-[826px]:text-sm">
+                                        <p>Price ({cartData[0].length} items)</p>
+                                        <p>₹{
+                                            cartValue
+                                        }</p>
+                                    </div>
+                                    <div className="flex justify-between py-2 max-[826px]:text-sm">
+                                        <p>Offer</p>
+                                        <p className='text-green-600'>13%</p>
+                                    </div>
+                                    <div className="flex justify-between py-2 max-[826px]:text-sm">
+                                        <p>Discount</p>
+                                        <p className='text-green-600'>₹− {Math.ceil(cartValue * 0.13)}</p>
+                                    </div>
+                                    <div className="flex justify-between py-2 max-[826px]:text-sm">
+                                        <p>Delivery Charges</p>
+                                        <p className='text-green-600'>Free</p>
+                                    </div>
 
-                            </div>
-                        </div>
-                        <div className="checkout basis-1/3  max-[682px]:w-[100%] ">
-                            <h2 className='text-xl font-medium pb-5 max-[826px]:text-lg max-[826px]:pb-1 '>Order summary</h2>
-                            <div className="flex justify-between py-2 max-[826px]:text-sm">
-                                <p>Price (5 items)</p>
-                                <p>$4242</p>
-                            </div>
-                            <div className="flex justify-between py-2 max-[826px]:text-sm">
-                                <p>Price (5 items)</p>
-                                <p>$4242</p>
-                            </div>
-                            <div className="flex justify-between py-2 max-[826px]:text-sm">
-                                <p>Delivery Charges</p>
-                                <p className='text-green-600'>Free</p>
-                            </div>
-                            <div className="flex justify-between py-2 max-[826px]:text-sm">
-                                <p>Discount</p>
-                                <p className='text-green-600'>− ₹15,550</p>
-                            </div>
-                            <hr className='mt-5' />
-                            <div className="flex justify-between py-4 max-[826px]:text-sm max-[826px]:py-2">
-                                <p className='text-lg font-medium max-[826px]:text-sm'>Total Amount</p>
-                                <p>$4242</p>
-                            </div>
-                            <p className='w-[100%] bg-orange-400 text-white text-center text-xl max-[826px]:text-lg max-[826px]:py-1 cursor-pointer py-2 mt-2'>Place Order</p>
-                            <p className='text-center w-[100%] text-slate-500 my-3 max-[826px]:my-1'>or</p>
-                            <p className='text-center w-[100%] cursor-pointer hover:text-orange-400 max-[826px]:text-sm'>Continue Shopping</p>
-                        </div>
+                                    <hr className='mt-5' />
+                                    <div className="flex justify-between py-4 max-[826px]:text-sm max-[826px]:py-2">
+                                        <p className='text-lg font-medium max-[826px]:text-sm'>Total Amount</p>
+                                        <p>₹{Math.ceil(cartValue * 0.87)}</p>
+                                    </div>
+                                    <p className='w-[100%] bg-orange-400 text-white text-center text-xl max-[826px]:text-lg max-[826px]:py-1 cursor-pointer py-2 mt-2'>Place Order</p>
+                                    <p className='text-center w-[100%] text-slate-500 my-3 max-[826px]:my-1'>or</p>
+                                    <p className='text-center w-[100%] cursor-pointer hover:text-orange-400 max-[826px]:text-sm'>Continue Shopping</p>
+                                </div>}
                     </div>
                 </div>
             </div >
