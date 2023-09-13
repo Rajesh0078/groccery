@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { store } from '../../App'
 import { ImCancelCircle } from "react-icons/im"
 import axios from 'axios'
@@ -6,7 +6,7 @@ import "../../pages/products/App.css"
 
 
 const CartContainer = () => {
-    const { cartData, setCart, cartValue } = useContext(store)
+    const { cartData, setCart, cartValue, user, setCartData, setCartLength, setCartValue } = useContext(store)
     const [pincodeData, setPincodeData] = useState("")
     const [pincode, setPincode] = useState("")
     //const [cartData, setCartData] = useState([])
@@ -20,7 +20,7 @@ const CartContainer = () => {
         setPincode("")
         //console.log(pincodeData)
     }
-    /*useEffect(() => {
+    useEffect(() => {
         axios.post("https://g-server-sa99.onrender.com/getcart", { user: user.email }).then((res) => setCartData(res.data))
         if (cartData[0] === undefined) {
             return;
@@ -30,14 +30,14 @@ const CartContainer = () => {
             let value = cartData[0].map((i) => Math.ceil(i.price * 100))
             setCartValue(value.reduce((prev, curre) => { return prev + curre }, 0))
         }
-    }, [user, cartData, setCartLength])*/
+    }, [user, cartData, setCartLength, setCartData, setCartValue])
 
 
     return (
         <>
             <div id='cart' className="cart_container h-screen w-[100%] border left-0 right-0  top-0 bg-slate-100 z-[1000]  pt-5 fixed " >
                 <div className='right-10 max-[826px]:right-5 absolute cursor-pointer'><ImCancelCircle size={25} onClick={() => setCart(false)} /></div>
-                <div className="cart_content bg-white h-[100%] pb-[5rem]  mt-[5rem] rounded-t-[2rem] p-5 ">
+                <div className="cart_content bg-white h-[100%] max-[682px]:overflow-y-scroll pb-[5rem] mt-[5rem] rounded-t-[2rem] p-5 ">
                     <h2 className='text-2xl font-medium pb-2  border-b border-slate-500 mb-2'>Shopping cart</h2>
                     <div className="flex gap-5 h-[100%] max-[682px]:flex-col mt-4">
                         <div className=" basis-2/3 ">
@@ -103,7 +103,7 @@ const CartContainer = () => {
                                     </div>
                                     <p className='w-[100%] bg-orange-400 text-white text-center text-xl max-[826px]:text-lg max-[826px]:py-1 cursor-pointer py-2 mt-2'>Place Order</p>
                                     <p className='text-center w-[100%] text-slate-500 my-3 max-[826px]:my-1'>or</p>
-                                    <p className='text-center w-[100%] cursor-pointer hover:text-orange-400 max-[826px]:text-sm'>Continue Shopping</p>
+                                    <p className='text-center w-[100%] cursor-pointer hover:text-orange-400 max-[826px]:text-sm mb-[5.5rem]'>Continue Shopping</p>
                                 </div>}
                     </div>
                 </div>

@@ -20,14 +20,19 @@ const CategoriesData = () => {
     }, [categoryValue, sortValue, cartProductData])
 
     useEffect(() => {
-        axios.post("https://g-server-sa99.onrender.com/getcart", { user: user.email }).then((res) => setCartData(res.data))
-        if (cartData[0] === undefined) {
-            return;
+        if (user.email) {
+            axios.post("https://g-server-sa99.onrender.com/getcart", { user: user.email }).then((res) => setCartData(res.data))
+            if (cartData[0] === undefined) {
+                return;
+            }
+            else if (cartData[0].length > 0) {
+                setCartLength(cartData[0].length)
+                let value = cartData[0].map((i) => Math.ceil(i.price * 100))
+                setCartValue(value.reduce((prev, curre) => { return prev + curre }, 0))
+            }
         }
-        else if (cartData[0].length > 0) {
-            setCartLength(cartData[0].length)
-            let value = cartData[0].map((i) => Math.ceil(i.price * 100))
-            setCartValue(value.reduce((prev, curre) => { return prev + curre }, 0))
+        else {
+            setCartLength(0)
         }
     }, [user, cartData, setCartLength, setCartValue, setCartData])
 

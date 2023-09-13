@@ -83,7 +83,7 @@ const SignUp = () => {
                         <input className=' py-2 px-2 max-[382px]:py-1 rounded-md border border-slate-300' type="password" placeholder='Confirm Your password' value={inputData.cpassword} id='cpassword' name='cpassword' required onChange={chanegHandler} />
                     </div>
                 </div>
-                <input className=' mt-6 max-[382px]:mt-3 max-[382px]:py-1 py-2 px-2 rounded-md border border-slate-300 bg-gradient-to-r from-[orangered] text-white to-orange-400' type="submit" value={"SignUp"} />
+                <input className=' mt-6 max-[382px]:mt-3 max-[382px]:py-1 py-2 px-2 rounded-md border border-slate-300 cursor-pointer bg-gradient-to-r from-[orangered] text-white to-orange-400' type="submit" value={"SignUp"} />
                 <p className='mt-3  max-[382px]:mt-2  max-[382px]:text-sm'>Already have an Account <span className='text-orange-500 ms-2 cursor-pointer '>Login Now</span></p>
             </form >
             <ToastContainer />
