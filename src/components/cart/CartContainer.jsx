@@ -9,8 +9,8 @@ const CartContainer = () => {
     const { cartData, setCart, cartValue, user, setCartData, setCartLength, setCartValue } = useContext(store)
     const [pincodeData, setPincodeData] = useState("")
     const [pincode, setPincode] = useState("")
-    //const [cartData, setCartData] = useState([])
-    //const [cartValue, setCartValue] = useState([0])
+
+
     const changeHandler = (e) => {
         setPincode(e.target.value)
     }
@@ -18,8 +18,8 @@ const CartContainer = () => {
         e.preventDefault()
         axios.get(`https://api.postalpincode.in/pincode/${pincode}`).then((res) => setPincodeData(res.data))
         setPincode("")
-        //console.log(pincodeData)
     }
+
     useEffect(() => {
         axios.post("https://g-server-sa99.onrender.com/getcart", { user: user.email }).then((res) => setCartData(res.data))
         if (cartData[0] === undefined) {
@@ -29,9 +29,15 @@ const CartContainer = () => {
             setCartLength(cartData[0].length)
             let value = cartData[0].map((i) => Math.ceil(i.price * 100))
             setCartValue(value.reduce((prev, curre) => { return prev + curre }, 0))
+
         }
+
     }, [user, cartData, setCartLength, setCartData, setCartValue])
 
+    const removeHandler = (e) => {
+        const value = e.target.parentElement.childNodes[0].innerText
+        axios.post("https://g-server-sa99.onrender.com/removeitem", { user: user.email, name: value })
+    }
 
     return (
         <>
@@ -66,7 +72,7 @@ const CartContainer = () => {
                                                                 <p className='line-through max-[826px]:text-[.7rem] text-slate-600 text-[.8rem]'>₹{Math.ceil(i.price * 100)}</p>
                                                                 <p className='ms-3 text-xl max-[826px]:text-lg font-normal'>₹{Math.ceil((i.price * 100) * 0.9)}</p>
                                                                 <p className='ms-3 text-sm text-green-600 max-[826px]:text-[.7rem]'>10% Offer</p><br className='max-[826px]:hidden' />
-                                                                <p className='px-2 text-white rounded-sm mt-2 text-sm cursor-pointer bg-orange-300 max-[826px]:ms-10 max-[520px]:ms-0'>Remove item</p>
+                                                                <p className='px-2 text-white rounded-sm mt-2 text-sm cursor-pointer bg-orange-300 max-[826px]:ms-10 max-[520px]:ms-0' onClick={removeHandler}>Remove item</p>
                                                             </div>
                                                         </div>
                                                     })
